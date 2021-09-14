@@ -2,19 +2,24 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NASACard from "./nasaCard";
 
-function NASAData() {
+const NASAData = () => {
   const [card, setCard] = useState([]);
+  var likes = []
 
   useEffect(() => {
     axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=MvHA2fWCDiM9Sk8FJBebeZ6DBQoI5bTxVr4sBJxg`)
+      .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=MvHA2fWCDiM9Sk8FJBebeZ6DBQoI5bTxVr4sBJxg`)
       .then(response => {
-        console.log(response.data.results);
-        console.log(response.data);
-        setCard(response.data.results);
+        console.log(response.data.photos)
+        setCard(response.data.photos)
       })
       .catch(err => console.log(err));
   }, []);
+
+  const saveLikes = () => {
+      likes = []
+  }
+
 
   return (
     <div>
@@ -22,9 +27,15 @@ function NASAData() {
         return (
           <ul>
             <NASACard
-              date={arr.date}
-              hdurl={arr.hdurl}
+              id={arr.id}
+              image={arr.img_src}
+              name={arr.rover.name}
+              landingDate={arr.rover.landing_date}
+              launchDate={arr.rover.launch_date}
+              status={arr.rover.status}
+              earth_date={arr.earth_date}
             />
+            <button onclick={saveLikes}>"Hi"</button>
           </ul>
         );
       })}

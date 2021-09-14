@@ -1,0 +1,14 @@
+img {
+    width:50%
+}
+
+.pictureCaption {
+    border-style: solid;
+    padding-top: 5%;
+    padding-bottom: 3%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
