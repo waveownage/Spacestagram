@@ -4,7 +4,6 @@ import NASACard from "./nasaCard";
 
 const NASAData = () => {
   const [card, setCard] = useState([]);
-  var likes = []
 
   useEffect(() => {
     axios
@@ -15,10 +14,6 @@ const NASAData = () => {
       })
       .catch(err => console.log(err));
   }, []);
-
-  const saveLikes = () => {
-      likes = []
-  }
 
 
   return (
@@ -35,7 +30,6 @@ const NASAData = () => {
               status={arr.rover.status}
               earth_date={arr.earth_date}
             />
-            <button onclick={saveLikes}>"Hi"</button>
           </ul>
         );
       })}

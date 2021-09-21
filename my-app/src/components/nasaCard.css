@@ -2,8 +2,8 @@ img {
     width:50%
 }
 
+
 .pictureCaption {
-    border-style: solid;
     padding-top: 5%;
     padding-bottom: 3%;
     width: 100%;
@@ -12,3 +12,14 @@ img {
     justify-content: center;
     align-items: center;
 }
+.btn-primary {
+    background-color: #23aa4e;
+    border-color: #177d37;
+  }
+  
+  #like {
+    margin: 3rem;
+  }
+
+  
+  
